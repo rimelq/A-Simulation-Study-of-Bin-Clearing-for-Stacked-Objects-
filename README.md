@@ -7,7 +7,7 @@
 
 ## What this project is
 
-This is an EPFL CVLab semester project on robotic bin clearing. A UR5e arm fitted
+In this project, we explore robotic bin clearing. A UR5e arm fitted
 with a parallel-jaw gripper has to empty a source bin packed with stacked blocks
 into a destination bin, one grasp at a time, inside a MuJoCo simulation. Every
 grasp is scored by a hybrid-physics check that decides whether the pick would
