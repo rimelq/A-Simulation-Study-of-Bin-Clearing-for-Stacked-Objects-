@@ -1,0 +1,20 @@
+# Pinned to the iapr_project conda env used to produce the frozen artefacts.
+# Python 3.9. For CUDA torch, install the matching wheel from
+# https://pytorch.org/get-started/locally/ before `pip install -r`.
+
+numpy==2.0.2
+scipy==1.13.1
+opencv-python==4.13.0.92
+imageio==2.37.0
+imageio-ffmpeg==0.6.0
+matplotlib==3.9.4
+pandas==2.2.3
+torch==2.6.0
+mujoco==3.1.6
+robosuite==1.4.1
+stable-baselines3==2.7.1
+sb3-contrib==2.7.1
+gymnasium==1.1.1
+tensorboard==2.20.0
+tqdm==4.67.1
+PyYAML==6.0.3

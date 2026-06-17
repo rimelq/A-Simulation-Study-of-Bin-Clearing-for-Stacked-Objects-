@@ -1,0 +1,21 @@
+<mujoco model="item_0000">
+  <asset>
+    <mesh name="item_0000_mesh" file="../square_22_pkg/stl_vis/item_0000.stl" scale="0.25 0.25 0.25"/>
+  </asset>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom type="mesh" mesh="item_0000_mesh"
+              rgba="0.65 0.50 0.35 1"
+              solimp="0.998 0.998 0.001" solref="0.001 1"
+              density="500"
+              friction="0.9 0.005 0.0001"
+              condim="4"
+              contype="1" conaffinity="1"/>
+      </body>
+      <site rgba="0 0 0 0" size="0.005" pos="0 0 -0.02" name="bottom_site"/>
+      <site rgba="0 0 0 0" size="0.005" pos="0 0  0.02" name="top_site"/>
+      <site rgba="0 0 0 0" size="0.005" pos="0.02 0.02 0" name="horizontal_radius_site"/>
+    </body>
+  </worldbody>
+</mujoco>

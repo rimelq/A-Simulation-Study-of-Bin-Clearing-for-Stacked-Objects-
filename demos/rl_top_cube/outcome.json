@@ -1,0 +1,123 @@
+{
+  "policy": "rl_maskable_ppo",
+  "rl_model_path": "/home/elqabli/CVLAB_project/cvlab_project_final/rl/models/best_model.zip",
+  "chosen_body": "item_0015",
+  "chosen_idx": 1,
+  "chosen_quality": 0.47270177531891744,
+  "chosen_source_body_id": 38,
+  "rl_action": 43,
+  "rl_sub_action_m": 16,
+  "chosen_dx": 0.0,
+  "chosen_dy": 0.015,
+  "chosen_dyaw": 0.0,
+  "n_unmasked_actions": 270,
+  "n_total_actions": 270,
+  "grasp_pos": [
+    -0.05506463650000001,
+    0.23511425025,
+    0.98998105625
+  ],
+  "grasp_quat_wxyz": [
+    0.0,
+    0.7071067811865475,
+    0.7071067811865475,
+    0.0
+  ],
+  "grasp_pos_base": [
+    -0.05506463650000001,
+    0.22011425025,
+    0.96098105625
+  ],
+  "candidate_world_quat_wxyz": [
+    0.0,
+    0.7071067811865475,
+    0.7071067811865475,
+    0.0
+  ],
+  "grasp_success": true,
+  "grasp_ok": true,
+  "grasp_quality": 1.0,
+  "items_ejected": 0,
+  "sum_disturb_raw_m": 0.04637713954934736,
+  "max_disturb_m": 0.011527508476951052,
+  "neighbour_disturbance_m": 0.013466453961081405,
+  "n_near_items": 12,
+  "n_predicate_succ_subchecks": 4,
+  "predicate_subchecks": {
+    "item_between_jaws": true,
+    "jaws_aligned": true,
+    "mid_height": true,
+    "approach_clear": true
+  },
+  "predicate_reason": "OK: would pick 'item_0015'",
+  "picked_item": "item_0015",
+  "ik_err_m": 0.007045184868355829,
+  "n_frames_captured": 193,
+  "fps": 20,
+  "seed": 1000,
+  "n_objects": 17,
+  "n_candidates": 10,
+  "exception": null,
+  "display_rotation_cw_deg": 90,
+  "display_crop": "source_bin_square",
+  "display_bin_bounds_640": [
+    71,
+    0,
+    569,
+    480
+  ],
+  "env_kwargs": {
+    "n_objects": 17,
+    "K": 10,
+    "candidate_source": "ppo",
+    "ppo_visibility_mode": "raycast",
+    "ppo_quality_mode": "analytical",
+    "filter_candidates": true,
+    "orientation_source": "snap",
+    "use_snap_xy": false,
+    "use_snap_z": true,
+    "layout_jitter": 0.0,
+    "failure_mask_size": 3,
+    "reward_mode": "hybrid_physics"
+  },
+  "picked_body_com_z_initial": 0.87598105625,
+  "is_top_layer_pick": true,
+  "picked_item_final_xyz": [
+    -0.007831792638937695,
+    -0.20517008907431716,
+    0.8232286539828889
+  ],
+  "dst_bin_world": [
+    -0.010000000000000009,
+    -0.22,
+    0.8
+  ],
+  "in_target_bin": true,
+  "n_frames_total": 193,
+  "cinematic_transport_seconds": 5.3,
+  "cinematic_transport": {
+    "ran": true,
+    "n_frames_lift": 20,
+    "n_frames_transport": 31,
+    "n_frames_lower": 20,
+    "n_frames_release": 35,
+    "waypoints": {
+      "lift": [
+        -0.05506463650000001,
+        0.23511425025,
+        1.18998105625
+      ],
+      "transport": [
+        -0.010000000000000009,
+        -0.22,
+        1.18998105625
+      ],
+      "lower": [
+        -0.010000000000000009,
+        -0.22,
+        1.1005761874554754
+      ]
+    },
+    "seconds": 5.3
+  }
+}

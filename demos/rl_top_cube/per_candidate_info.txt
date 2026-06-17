@@ -1,0 +1,91 @@
+Per-candidate RL eval output (candidate_source='ppo')
+==============================================================================
+datetime          : 2026-06-16T21:03:37
+rl_model_path     : /home/elqabli/CVLAB_project/cvlab_project_final/rl/models/best_model.zip
+n_objects         : 17
+layout_jitter     : 0.0
+seed              : 1000
+floor_depth       : 0.4000 m
+cam_pos           : [-0.01  0.22  1.2 ]
+render_fovy       : 45.0 deg (K_back at 640x480)
+chosen_idx (k)    : 1
+rl_action (raw)   : 43
+sub_action (m)    : 16
+refinement        : dx=+0.0000 m  dy=+0.0150 m  dyaw=+0.0000 rad
+n_unmasked actions: 270 / 270
+
+Action decoding (v5): action = k*27 + m, m = dx_idx*9 + dy_idx*3 + dyaw_idx, idx in {0,1,2}, dx,dy in {-0.015,0,+0.015} m, dyaw in {-0.1745,0,+0.1745} rad.
+==============================================================================
+
+[# 0] body~=item_0012  q=0.4848
+     source_body_id = 35
+     px_full=(272, 93)  (projection-only, viz)
+     width_px= 28.00  angle_rad=+0.0000  depth_m=0.4248
+     world_xyz=(-0.0393,+0.2802,+0.8492)
+     world_quat (wxyz) = (+0.0000,+0.7071,+0.7071,+0.0000)
+
+[# 1] body~=item_0006  q=0.4727  [CHOSEN by RL]
+     source_body_id = 38
+     px_full=(239,188)  (projection-only, viz)
+     width_px= 28.00  angle_rad=+0.0000  depth_m=0.3980
+     world_xyz=(-0.0551,+0.2201,+0.8760)
+     world_quat (wxyz) = (+0.0000,+0.7071,+0.7071,+0.0000)
+     rl_action=43  sub_action(m)=16
+     dx=+0.0000  dy=+0.0150  dyaw=+0.0000
+
+[# 2] body~=item_0000  q=0.4440
+     source_body_id = 23
+     px_full=(371, 99)  (projection-only, viz)
+     width_px= 28.00  angle_rad=+0.0000  depth_m=0.4485
+     world_xyz=(+0.0227,+0.2822,+0.8255)
+     world_quat (wxyz) = (+0.0000,+0.7071,+0.7071,+0.0000)
+
+[# 3] body~=item_0005  q=0.4333
+     source_body_id = 28
+     px_full=(471,160)  (projection-only, viz)
+     width_px= 28.00  angle_rad=-1.5708  depth_m=0.4485
+     world_xyz=(+0.0876,+0.2425,+0.8255)
+     world_quat (wxyz) = (+0.0000,+1.0000,+0.0000,+0.0000)
+
+[# 4] body~=item_0014  q=0.4256
+     source_body_id = 37
+     px_full=(142,312)  (projection-only, viz)
+     width_px= 28.00  angle_rad=-1.5708  depth_m=0.3985
+     world_xyz=(-0.1095,+0.1508,+0.8755)
+     world_quat (wxyz) = (+0.0000,+1.0000,+0.0000,+0.0000)
+
+[# 5] body~=item_0011  q=0.4091
+     source_body_id = 34
+     px_full=(394,393)  (projection-only, viz)
+     width_px= 28.00  angle_rad=+0.0000  depth_m=0.4485
+     world_xyz=(+0.0381,+0.0921,+0.8255)
+     world_quat (wxyz) = (+0.0000,+0.7071,+0.7071,+0.0000)
+
+[# 6] body~=item_0003  q=0.4091
+     source_body_id = 26
+     px_full=(473,360)  (projection-only, viz)
+     width_px= 28.00  angle_rad=-1.5708  depth_m=0.4485
+     world_xyz=(+0.0886,+0.1133,+0.8255)
+     world_quat (wxyz) = (+0.0000,+1.0000,+0.0000,+0.0000)
+
+[# 7] body~=item_0009  q=0.4031
+     source_body_id = 32
+     px_full=(200,378)  (projection-only, viz)
+     width_px= 28.00  angle_rad=-1.5708  depth_m=0.4485
+     world_xyz=(-0.0873,+0.1015,+0.8255)
+     world_quat (wxyz) = (+0.0000,+1.0000,+0.0000,+0.0000)
+
+[# 8] body~=item_0008  q=0.4031
+     source_body_id = 31
+     px_full=(283,392)  (projection-only, viz)
+     width_px= 28.00  angle_rad=+0.0000  depth_m=0.4485
+     world_xyz=(-0.0342,+0.0928,+0.8255)
+     world_quat (wxyz) = (+0.0000,+0.7071,+0.7071,+0.0000)
+
+[# 9] body~=item_0006  q=0.3970
+     source_body_id = 29
+     px_full=(268,275)  (projection-only, viz)
+     width_px= 28.00  angle_rad=+0.0000  depth_m=0.4485
+     world_xyz=(-0.0434,+0.1685,+0.8255)
+     world_quat (wxyz) = (+0.0000,+0.7071,+0.7071,+0.0000)
+

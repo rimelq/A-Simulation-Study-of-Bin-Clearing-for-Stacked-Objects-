@@ -1,0 +1,72 @@
+Per-candidate GG-CNN output (full-image demo)
+==============================================================================
+datetime          : 2026-06-09T23:42:20
+n_objects         : 17
+layout_jitter     : 0.0
+seed              : 1000
+floor_depth       : 0.4000 m
+cam_pos           : [-0.01  0.22  1.2 ]
+pad_y             : 80  (480 -> 640 with floor_depth)
+scale 300->640    : 2.1333
+render_fovy       : 45.0 deg  (K_back built at 640x480)
+auto_norm_range   : (0.2895963191986084, 0.40000006556510925) m
+chosen_idx        : 0
+
+Execution semantics:
+ - Predicted XY  : IS used at execution (use_snap_xy=False).
+ - Predicted Z   : NOT used at execution; Z is GT-snapped.
+ - Predicted yaw : NOT used at execution; yaw is GT-snapped.
+ - Width (px)    : NOT used at execution; gripper closes
+                   to a fixed pad gap target.
+==============================================================================
+
+[# 0] body~=item_0009  q=0.8847
+     px300=( 93,242)  px_full=(198,436)
+     width_px=  0.95  angle_rad=+1.4782  depth_m=0.3964
+     world_xyz=(-0.0932,+0.0857,+0.8036)
+
+[# 1] body~=item_0013  q=0.8846
+     px300=(201,161)  px_full=(429,263)
+     width_px=  1.24  angle_rad=-0.3773  depth_m=0.2986
+     world_xyz=(+0.0461,+0.2079,+0.9014)
+
+[# 2] body~=item_0009  q=0.8598
+     px300=( 81,242)  px_full=(173,436)
+     width_px=  0.81  angle_rad=+1.4597  depth_m=0.3964
+     world_xyz=(-0.1107,+0.0857,+0.8036)
+
+[# 3] body~=item_0009  q=0.8384
+     px300=( 87,242)  px_full=(186,436)
+     width_px=  0.73  angle_rad=+1.4382  depth_m=0.3964
+     world_xyz=(-0.1019,+0.0857,+0.8036)
+
+[# 4] body~=item_0013  q=0.8238
+     px300=(207,152)  px_full=(442,244)
+     width_px=  0.88  angle_rad=+0.0719  depth_m=0.2945
+     world_xyz=(+0.0518,+0.2178,+0.9055)
+
+[# 5] body~=item_0011  q=0.8134
+     px300=(201,242)  px_full=(429,436)
+     width_px=  0.72  angle_rad=+1.3976  depth_m=0.3495
+     world_xyz=(+0.0556,+0.1016,+0.8505)
+
+[# 6] body~=item_0009  q=0.8082
+     px300=(105,242)  px_full=(224,436)
+     width_px=  0.68  angle_rad=+1.3726  depth_m=0.3964
+     world_xyz=(-0.0757,+0.0857,+0.8036)
+
+[# 7] body~=item_0003  q=0.8060
+     px300=(227,244)  px_full=(484,441)
+     width_px=  0.68  angle_rad=-1.4946  depth_m=0.3882
+     world_xyz=(+0.1001,+0.0856,+0.8118)
+
+[# 8] body~=item_0015  q=0.8019
+     px300=(102,134)  px_full=(218,206)
+     width_px=  0.71  angle_rad=-0.1223  depth_m=0.2990
+     world_xyz=(-0.0628,+0.2376,+0.9010)
+
+[# 9] body~=item_0009  q=0.8004
+     px300=( 99,242)  px_full=(211,436)
+     width_px=  0.59  angle_rad=+1.2907  depth_m=0.3964
+     world_xyz=(-0.0844,+0.0857,+0.8036)
+

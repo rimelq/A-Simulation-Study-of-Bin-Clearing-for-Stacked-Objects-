@@ -1,0 +1,160 @@
+==============================================================================
+RL PICK + PLACE TOP-CUBE SHOWCASE (MaskablePPO + GT ghost candidates)
+  layout_jitter = 0.0   (no jitter; cubes spawn at mesh-defined
+                          stack positions from poses_relative_to_
+                          container.csv via object_spawner.py)
+  n_objects     = 17   (matched value from n-sweep at
+                          seed=1000, layout_jitter=0.0)
+  Cinematic post-grasp transport: lift -> transport -> lower -> drop
+  Goal: showcase RL picking a TOP-LAYER cube (body_com_z >= 0.86)
+        AND placing it in the destination bin.
+datetime    : 2026-06-16T21:03:08
+out_dir     : /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube
+rl_model    : /home/elqabli/CVLAB_project/cvlab_project_final/rl/models/best_model.zip
+==============================================================================
+
+[1] Building BinClearingGymEnv (RL eval config, hybrid_physics)
+    n_objects          = 17
+    layout_jitter      = 0.0
+    candidate_source   = 'ppo' (Perfect-Perception Oracle ghost)
+    ppo_visibility_mode= 'raycast'
+    ppo_quality_mode   = 'analytical'
+    orientation_source = 'snap'
+    use_snap_xy        = False  (RL controls XY)
+    use_snap_z         = True   (GT-snapped Z)
+    failure_mask_size  = 3
+    reward_mode        = 'hybrid_physics'
+    seed               = 1000
+
+[1b] reset done. n_items_remaining=17
+    obs shape          = (229,)  dtype = float32
+    action_space       = Discrete(270)
+    pre-grasp pile snapshot: 17 items pinned for pre-contact phase
+
+[2] Capturing overhead depth + reading PPO ghost candidates ...
+    cam_pos          : [-0.01  0.22  1.2 ]
+    floor_depth      : 0.4000 m
+    pad_y            : 80  (640x480 -> 640x640)
+    scale 300->640   : 2.1333
+    n PPO candidates : 10
+    bin_bounds 640   : x[71,569)  y[0,480)  (display crop)
+
+[3] Capturing overhead RGB ...
+    rgb_full shape   : (480, 640, 3)  dtype: uint8
+
+[4] Loading MaskablePPO and selecting action ...
+    n_unmasked actions : 270 / 270
+    RL action          : 43  -> (k=1, m=16)
+    decoded refinement : dx=+0.0000 m  dy=+0.0150 m  dyaw=+0.0000 rad
+    chosen world_pos   : [-0.05506464  0.22011425  0.87598106]
+    chosen quality     : 0.4727
+    chosen src_body_id : 38
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/depth_full.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/overhead_rgb_with_predictions.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/depth_full_with_predictions.png
+
+[5] Rendering 3/4 oblique view (UN-rotated) ...
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/frontview_3q.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/candidates.csv
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/per_candidate_info.txt
+
+[6] Eval grasp_pos / grasp_quat assembled (RL refinement applied)
+    target_item       = item_0015
+    grasp_pos_base    = [-0.05506464  0.22011425  0.96098106]
+    grasp_pos_refined = [-0.05506464  0.23511425  0.96098106]  (added dx,dy)
+    grasp_pos (final) = [-0.05506464  0.23511425  0.98998106]  (Z snapped to GT item top)
+    grasp_quat (wxyz) = [0.         0.70710678 0.70710678 0.        ]  (yaw composed onto cand quat)
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/before_top.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/before_3q.png
+
+[7] Predicate sub-checks (computed BEFORE physics):
+    item_between_jaws = True
+    jaws_aligned      = True
+    mid_height        = True
+    approach_clear    = True
+    n succ sub-checks = 4/4
+[8] Smooth approach: sensing pose -> above_pile (visible descent)
+
+[9] Running pick_place.attempt_grasp_hybrid() with frame capture
+    grasp_state set to : SUCCESS
+    sum_disturb_raw_m locked at: 0.0464
+    src pile snapshot taken: 17 items, picked=item_0015
+    SAFE-DROP geometry:
+      dst_bin[2] (floor top)   : 0.8000
+      bin wall top z           : 0.9000
+      wp_lower.z (EEF target)  : 1.1006
+      grasp_offset.z           : -0.1206
+      expected cube COM z      : 0.9800
+      expected cube bottom z   : 0.9510
+      clearance over wall top  : 0.0510
+
+[10a] CINEMATIC pick-and-place sequence ...
+    grasp_offset (item - eef) : [ 0.00239636  0.01480363 -0.12057619]
+    waypoint lift             : [-0.05506464  0.23511425  1.18998106]
+    waypoint transport        : [-0.01       -0.22        1.18998106]
+    waypoint lower            : [-0.01       -0.22        1.10057619]
+    releasing item PHYSICALLY (gravity-driven drop)
+    cinematic frames           : 106  (5.30s @ 20 fps)
+
+[10b] Capturing post-roll (2.0 s at 20 fps)
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/after_top.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/after_3q.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/disturbance_table.csv
+
+[11] Placement outcome:
+    picked_item        = item_0015
+    body_com_z_initial = 0.87598105625  (>=0.86 means TOP layer)
+    picked_final_xyz   = [-0.007831792638937695, -0.20517008907431716, 0.8232286539828889]
+    dst_bin_world      = [-0.010000000000000009, -0.22, 0.8]
+    in_target_bin      = True
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube/outcome.json
+
+==============================================================================
+RL PICK + PLACE  (TOP-cube cinematic showcase)  SUMMARY
+==============================================================================
+out_dir              : /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube
+rl_model             : /home/elqabli/CVLAB_project/cvlab_project_final/rl/models/best_model.zip
+seed                 : 1000
+layout_jitter        : 0.0
+n_objects            : 17
+n PPO candidates     : 10  chosen=#1  q=0.4727
+RL action            : 43  -> (k=1, m=16) dx=+0.000 dy=+0.015 dyaw=+0.000
+target_item          : item_0015
+picked_body_com_z    : 0.87598105625  (>=0.86 means TOP layer of pile)
+is_top_layer_pick    : True
+grasp_pos (wrist tgt): [-0.05506464  0.23511425  0.98998106]
+grasp_ok             : True
+items_ejected        : 0
+sum_disturb_raw_m    : 0.0464
+max_disturb_m        : 0.0115
+predicate_subchecks  : 4/4
+predicate_reason     : OK: would pick 'item_0015'
+cinematic ran        : True
+  waypoint lift      : [-0.05506463650000001, 0.23511425025, 1.18998105625]
+  waypoint transport : [-0.010000000000000009, -0.22, 1.18998105625]
+  waypoint lower     : [-0.010000000000000009, -0.22, 1.1005761874554754]
+  n_frames_lift      : 20
+  n_frames_transport : 31
+  n_frames_lower     : 20
+  n_frames_release   : 35
+  cinematic_seconds  : 5.30s
+picked_final_xyz     : [-0.007831792638937695, -0.20517008907431716, 0.8232286539828889]
+in_target_bin        : True
+video frames captured: 193  (n_frames_total = 193)
+==============================================================================
+
+Files in /home/elqabli/CVLAB_project/cvlab_project_final/demos/rl_top_cube:
+  after_3q.png
+  after_top.png
+  before_3q.png
+  before_top.png
+  candidates.csv
+  depth_full.png
+  depth_full_with_predictions.png
+  disturbance_table.csv
+  frontview_3q.png
+  log.txt
+  outcome.json
+  overhead_rgb_with_predictions.png
+  per_candidate_info.txt
+  pick_and_place_top.mp4

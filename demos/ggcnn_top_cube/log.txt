@@ -1,0 +1,116 @@
+==============================================================================
+GG-CNN demo on the RL-success scene (n_objects=17, layout_jitter=0.0, seed=1000)
+datetime : 2026-06-09T23:42:12
+out_dir  : /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube
+==============================================================================
+
+[1] Building BinClearingGymEnv (hybrid_physics eval config)
+    n_objects          = 17
+    layout_jitter      = 0.0
+    candidate_source   = 'ggcnn'  (env perception, then OVERRIDDEN)
+    orientation_source = 'snap'
+    use_snap_xy        = False  (predicted XY)
+    use_snap_z         = True   (GT-snapped Z)
+    failure_mask_size  = 3
+    reward_mode        = 'hybrid_physics'
+    seed               = 1000
+
+[1b] reset done. n_items_remaining=17
+
+[2] Running full-image GG-CNN perception ...
+    cam_pos          : [-0.01  0.22  1.2 ]
+    floor_depth      : 0.4000 m
+    pad_y            : 80  (640x480 -> 640x640)
+    scale 300->640   : 2.1333
+    auto_norm_range  : [0.2896, 0.4000] m
+    quality.max      : 0.8847
+    n candidates     : 10
+    bin_bounds 640   : x[71,569)  y[0,480)  (display crop)
+    bin_bounds 300   : x[19,281)  y[23,277)  (display crop)
+
+[3] Capturing overhead RGB ...
+    rgb_full shape   : (480, 640, 3)  dtype: uint8
+
+[4] Greedy chooses candidate #0  q=0.8847
+    world_pos        : [-0.09318708  0.08573314  0.80362229]
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/depth_full.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/depth_ggcnn_input.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/quality_heatmap.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/overhead_rgb_with_predictions.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/depth_full_with_predictions.png
+
+[5] Rendering 3/4 oblique view (UN-rotated) ...
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/frontview_3q.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/candidates.csv
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/per_candidate_info.txt
+
+[6] Eval grasp_pos / grasp_quat assembled
+    target_item       = item_0009
+    grasp_pos         = [-0.08        0.15        0.93949963]
+    grasp_quat (wxyz) = [0. 1. 0. 0.]
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/before_top.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/before_3q.png
+
+[7] Predicate sub-checks (computed BEFORE physics):
+    item_between_jaws = False
+    jaws_aligned      = False
+    mid_height        = False
+    approach_clear    = False
+    n succ sub-checks = 0/4
+[8] Smooth approach: sensing pose -> above_pile (visible descent)
+
+[9] Running pick_place.attempt_grasp_hybrid() with frame capture
+    grasp_state set to : FAIL
+
+[10] Capturing post-roll (2.0 s at 20 fps)
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/after_top.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/after_3q.png
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/disturbance_table.csv
+
+[11] Placement outcome:
+    picked_item        = item_0009
+    body_com_z_initial = 0.8254996320000001  (>=0.86 means TOP layer)
+    picked_final_xyz   = [-0.08731808175000001, 0.13052190400000002, 0.8254996320000001]
+    dst_bin_world      = [-0.010000000000000009, -0.22, 0.8]
+    in_target_bin      = False
+[save] /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube/outcome.json
+
+==============================================================================
+GG-CNN PICK + PLACE (TOP-cube head-to-head)  SUMMARY
+==============================================================================
+out_dir              : /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube
+n_objects            : 17  layout_jitter=0.0  seed=1000
+n candidates         : 10  chosen=#0  q=0.8847
+target_item          : item_0009
+grasp_pos (wrist tgt): [-0.08        0.15        0.93949963]
+grasp_ok             : False
+items_ejected        : 0
+sum_disturb_raw_m    : 0.0697
+max_disturb_m        : 0.0379
+predicate_subchecks  : 0/4
+predicate_reason     : no item fits between jaws (hint item too far/misaligned)
+picked_body_com_z    : 0.8254996320000001  (>=0.86 means TOP layer of pile)
+is_top_layer_pick    : False
+cinematic ran        : False
+picked_final_xyz     : [-0.08731808175000001, 0.13052190400000002, 0.8254996320000001]
+in_target_bin        : False
+video frames captured: 99  (n_frames_total = 99)
+==============================================================================
+
+Files in /home/elqabli/CVLAB_project/cvlab_project_final/demos/ggcnn_top_cube:
+  after_3q.png
+  after_top.png
+  before_3q.png
+  before_top.png
+  candidates.csv
+  depth_full.png
+  depth_full_with_predictions.png
+  depth_ggcnn_input.png
+  disturbance_table.csv
+  frontview_3q.png
+  log.txt
+  outcome.json
+  overhead_rgb_with_predictions.png
+  per_candidate_info.txt
+  pick_and_place_top.mp4
+  quality_heatmap.png

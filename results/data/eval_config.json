@@ -1,0 +1,26 @@
+{
+  "policies": [
+    "greedy_ggcnn",
+    "random",
+    "topdown",
+    "heuristic_augmented",
+    "rl"
+  ],
+  "n_objects": [
+    10,
+    15,
+    20
+  ],
+  "n_episodes": 60,
+  "seed_offset": 1000,
+  "rl_model_path": "rl/runs/rl_v5_l1_l4_action_augmented_n20/eval/best/best_model.zip",
+  "reward_mode": "hybrid_physics",
+  "K": 10,
+  "failure_mask": 3,
+  "layout_jitter": 0.02,
+  "output_dir": "eval/diagnostics/4method",
+  "resume": false,
+  "verbose": true,
+  "ggcnn_device": null,
+  "started": "2026-06-07T09:49:28"
+}
