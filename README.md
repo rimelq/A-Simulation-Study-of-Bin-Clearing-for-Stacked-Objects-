@@ -1,5 +1,8 @@
 # CVLab Semester Project: Bin Clearing for Stacked Objects
 
+**Rim El Qabli**, Supervisor: Corentin Dumery, Professor: Pascal Fua  
+*Master's Semester Project, CVLab, EPFL*
+
 <p align="center">
   <img src="docs/front.png" width="540"><br>
   <em>A UR5e arm clearing a bin of stacked blocks, one grasp at a time, in MuJoCo.</em>
@@ -21,11 +24,11 @@ how much does the choice of which object to grab next really matter?
 To answer this, five candidate-selection policies are compared on the exact same
 scenes and paired random seeds:
 
-- `greedy_ggcnn`, runs the GG-CNN depth grasp network on the real depth image and picks its highest-quality grasp
-- `random`, picks a visible object uniformly at random
-- `topdown`, picks the object whose center sits highest
-- `heuristic_augmented`, a staged hand-written rule
-- `rl`, a MaskablePPO agent trained on cluttered n=20 scenes
+- `greedy_ggcnn`: runs the GG-CNN depth grasp network on the real depth image and picks its highest-quality grasp
+- `random`: picks a visible object uniformly at random
+- `topdown`: picks the object whose top sits highest
+- `heuristic_augmented`: a staged hand-written rule
+- `rl`: a MaskablePPO agent trained on cluttered n=20 scenes
 
 Only the first policy runs on real perception. The other four are fed by a
 perfect-perception oracle that returns one clean candidate per visible object,
@@ -131,7 +134,7 @@ the selection policy.
 
 <p align="center">
   <img src="docs/training_monitor.png" width="560"><br>
-  <em>Training trajectory over 7,661 episodes. Items delivered climb steadily and episodes shorten as the agent learns to clear faster.</em>
+  <em>Training trajectory over 7,661 episodes. Items delivered rise from about 12.6 to roughly 14 per episode as the agent learns.</em>
 </p>
 
 The RL policy is a MaskablePPO agent. Each action picks one oracle candidate
@@ -145,8 +148,8 @@ per episode.
 ## Setup
 
 ```bash
-conda create -n iapr_project python=3.9
-conda activate iapr_project
+conda create -n cvlab_project python=3.9
+conda activate cvlab_project
 pip install -r requirements.txt
 ```
 
@@ -169,7 +172,7 @@ current directory.
 ### Train the RL policy
 
 Defaults are fine for a smoke-test run. To reproduce the frozen submitted
-checkpoint use the full command for the shipped run, which matches
+checkpoint use the full command below, which matches
 `rl/models/training_config.json`:
 
 ```bash
